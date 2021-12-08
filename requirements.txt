@@ -1,0 +1,11 @@
+anisocado
+astropy
+numpy
+photutils
+tqdm
+appdirs
+git+git://github.com/keflavich/image_registration.git@79dd90a7f4e3700e8ad379febdfec5ec7a6e6cb0
+git+git://github.com/AstarVienna/skycalc_ipy.git@8d15e7966dce4c0b705680dad37dc4f1143d4c94
+git+git://github.com/AstarVienna/ScopeSim_Templates.git@2e8587cc61d292fa5d623076026c7987de62682a
+git+git://github.com/krachyon/ScopeSim.git@model_eval_mine
+
