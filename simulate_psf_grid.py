@@ -1,3 +1,4 @@
+from __future__ import annotations
 import functools
 import pickle
 
@@ -89,7 +90,7 @@ def get_dummy_hdus() -> astropy.io.fits.HDUList:
     return anisocado.misc.make_simcado_psf_file([(0, 0)], [wavelength], N=10)
 
 
-def make_psf_effect(input_array) -> scopesim.effects.Effect:
+def make_psf_effect(input_array: np.ndarray) -> scopesim.effects.Effect:
     # The scopesim effect expects a few Fits headers to be present, generate a psf where we
     # can transplant our PSF image
     img_hdu = get_dummy_hdus()[2]
@@ -140,7 +141,7 @@ def setup_optical_train() -> tuple[int, scopesim.OpticalTrain]:
     return element_idx, micado
 
 
-def get_source(x_mas, y_mas) -> scopesim.Source:
+def get_source(x_mas: float, y_mas: float) -> scopesim.Source:
     spectral_types = ['A0V']
     return stars(filter_name='MICADO/filters/TC_filter_K-cont.dat',
                    amplitudes=[star_mag],
@@ -168,7 +169,7 @@ if __name__ == '__main__':
         target = get_source(xshift, yshift)
 
     # workstep
-    def generate_image(psf):
+    def generate_image(psf: np.ndarray):
         with work_in(scopesim_working_dir):
             # we can't seem to remove the effect again. So just create everything from scratch
             # each loop m(
