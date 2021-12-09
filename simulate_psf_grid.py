@@ -83,7 +83,7 @@ def center_of_image(img: np.ndarray) -> tuple[float, float]:
     return tuple(center_of_index(img.shape)[::-1])
 
 
-@functools.lru_cache
+@functools.lru_cache()
 def get_dummy_hdus() -> astropy.io.fits.HDUList:
     # the (0,0) here encodes an off-axis shift. Depending on what we're doing,
     # might have to change this to be varriable
